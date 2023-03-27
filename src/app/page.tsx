@@ -6,15 +6,24 @@ const inter = Inter({ subsets: ['latin'] })
 export default function HomePage() {
   return (
     <div className='h-full flex items-center flex-col justify-center'>
-        <header className={[inter.className,"container","min-h-[100px]","bg-red-300"].join(" ")}>
-          Header
+      <div className='container flex flex-1'>
+        <header className="p-6 bg-gray-900 hidden sm:block sm:w-48 md:w-64">
+          <h1>Header</h1>
+          <nav>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Notifications</a></li>
+              <li><a href="#">Profile</a></li>
+            </ul>
+          </nav>
         </header>
-        <section className='container flex flex-1'>
-          <aside className='bg-blue-300 hidden md:block md:w-64'>Aside</aside>
-          <main className={[inter.className,"bg-red-500","flex-1"].join(" ")}>
-             Main
-          </main>
-        </section>
+        <main className="p-6 bg-gray-800 flex-1">
+            Main
+        </main>
+        <aside className="p-6 bg-gray-900 hidden lg:block sm:w-48 md:w-64">
+          hey
+        </aside>
+      </div>
     </div>
   )
 }
