@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
+import { Guin } from "@/components";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function HomePage() {
+function HomePage() {
   return (
     <div className="h-full flex items-center flex-col justify-center">
       <div className="container flex flex-1">
@@ -48,9 +49,17 @@ export default function HomePage() {
         <main className="flex-1 relative">
           <h2 className="flex p-4 items-center backdrop-blur-md text-xl font-bold">Inicio</h2>
           <input className="w-full h-10 border border-gray-300" type="text" name="" id="" />
+          <section className="minguinos-container">
+            <Guin hasImage>
+              No tenía un destino en mente. Solo quería cabalgar. Siguió el arroyo por un tiempo, escuchando el goteo
+              del agua congelada sobre las rocas, luego cortó camino a través de los campos hacia el camino del rey.
+            </Guin>
+          </section>
         </main>
         <aside className="p-6 border-l border-gray-300 hidden lg:block sm:w-48 md:w-64">hey</aside>
       </div>
     </div>
   );
 }
+
+export default HomePage;
