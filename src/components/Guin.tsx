@@ -22,7 +22,7 @@ function Guin({ children, hasImage }: PropsWithChildren<{ hasImage?: boolean }>)
           </div>
           <p>{children}</p>
           <div className="relative h-[300px] my-5 cursor-pointer">
-            {hasImage ? <Image className="object-cover rounded-lg" src="/waifu.jpg" alt="waifu" fill /> : null}
+            {hasImage ? <Image className="object-cover rounded-lg" src="/imageguin.jpg" alt="waifu" fill /> : null}
           </div>
           {/* puede ser otro componente */}
           <div className="flex mt-3 ">

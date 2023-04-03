@@ -21,7 +21,7 @@ function HomePage() {
                   className="active inline-flex w-auto items-center p-2 rounded-full ease-in-out duration-200 hover:bg-slate-200"
                   href="#"
                 >
-                  <Image src="logo.svg" alt="minguino logo" width={30} height={30} />
+                  <Image src="icon-home.svg" alt="Home icon" width={30} height={30} />
                   <span className="px-3">Home</span>
                 </a>
               </li>
@@ -30,7 +30,7 @@ function HomePage() {
                   className="inline-flex w-auto items-center p-2 rounded-full ease-in-out duration-200 hover:bg-slate-200"
                   href="#"
                 >
-                  <Image src="logo.svg" alt="minguino logo" width={30} height={30} />
+                  <Image src="icon-notification-bell.svg" alt="Notifications icon" width={30} height={30} />
                   <span className="px-3">Notifications</span>
                 </a>
               </li>
@@ -39,7 +39,7 @@ function HomePage() {
                   className="inline-flex w-auto items-center p-2 rounded-full ease-in-out duration-200 hover:bg-slate-200"
                   href="#"
                 >
-                  <Image src="logo.svg" alt="minguino logo" width={30} height={30} />
+                  <Image src="icon-profile.svg" alt="Profile icon" width={30} height={30} />
                   <span className="px-3">Profile</span>
                 </a>
               </li>
