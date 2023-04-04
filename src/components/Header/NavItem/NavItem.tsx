@@ -14,7 +14,7 @@ function NavItem({ icon, text, isActive }: Props) {
         href="#"
       >
         {icon ? icon : null}
-        <span className="px-3">{text}</span>
+        <span className="px-3 hidden md:inline">{text}</span>
       </a>
     </li>
   );

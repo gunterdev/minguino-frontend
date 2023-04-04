@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
-import React, { ChangeEvent, LegacyRef, useRef, useState } from "react";
+import React, { ChangeEvent, useRef, useState } from "react";
 
 type Props = {};
 interface GuinLength {
   value: number;
   width: string;
 }
-const MAX_LENGTH = 50;
+const MAX_LENGTH = 250;
 function GuinPost(props: Props) {
   const [guinLength, setGuinLength] = useState<GuinLength>({
     value: 0,
@@ -21,6 +21,7 @@ function GuinPost(props: Props) {
     };
     setGuinLength(newGuinLenght);
   };
+
   return (
     <div className="flex gap-2 p-2 pr-4 border-b border-x border-gray-300">
       <div className="min-w-[66px]">
@@ -43,8 +44,8 @@ function GuinPost(props: Props) {
             rows={6}
           ></textarea>
         </form>
-        <div className="flex mt-1">
-          <div className="flex items-center flex-grow xl:gap-4">
+        <div className="flex mt-1 flex-col sm:flex-row">
+          <div className="flex items-center flex-grow gap-2 sm:gap-0 xl:gap-4">
             <button className="flex items-center group">
               <div className="p-1 rounded-full ease-in-out duration-200  group-hover:bg-slate-200 group-hover:bg-opacity-50">
                 <Image
@@ -104,15 +105,21 @@ function GuinPost(props: Props) {
                 }`}
               ></div>
             </div>
-            <button className="flex items-center gap-1 text-white font-bold px-3 py-1 rounded-full bg-orange-500 ease-in-out duration-200 hover:bg-orange-400">
+
+            <button
+              className="w-2/3 flex items-center gap-1 text-white font-bold px-3 py-1 rounded-full bg-orange-500 ease-in-out duration-200 hover:bg-orange-400 disabled:bg-orange-200"
+              disabled={guinLength.value > MAX_LENGTH}
+            >
               <Image
                 className="rotate-6"
                 src={"penguin.svg"}
                 width={20}
                 height={20}
-                alt="like icon"
+                alt="post icon"
               />
-              <span>Post Guin</span>
+              <span className="whitespace-nowrap text-xs w-full">
+                Post Guin
+              </span>
             </button>
           </div>
         </div>
