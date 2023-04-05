@@ -4,7 +4,7 @@ import { PropsWithChildren } from "react";
 
 function Header({ children }: PropsWithChildren<{}>) {
   return (
-    <header className="sticky top-0 h-full hidden sm:block md:w-auto px-4">
+    <header className="sticky  top-0 h-[100vh] hidden sm:flex flex-col md:w-auto px-4">
       <h1 className="py-5">
         <a
           href="#"
@@ -49,8 +49,31 @@ function Header({ children }: PropsWithChildren<{}>) {
               />
             }
           />
+          <NavItem
+            text="Explore"
+            icon={
+              <Image
+                src="icon-explore.svg"
+                alt="Explore icon"
+                width={25}
+                height={25}
+              />
+            }
+          />
+          <NavItem
+            text="Configuration"
+            icon={
+              <Image
+                src="icon-configuration.svg"
+                alt="Configuration icon"
+                width={25}
+                height={25}
+              />
+            }
+          />
         </ul>
       </nav>
+      <div className="flex grow items-end"></div>
     </header>
   );
 }

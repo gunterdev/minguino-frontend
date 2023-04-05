@@ -27,8 +27,8 @@ function Guin({
 
         <section>
           <div className="flex gap-1">
-            <span className="font-bold">GunteR_RL</span>
-            <span>@GunteR_</span>
+            <span className="font-bold hover:underline">GunteR_RL</span>
+            <span className="hover:underline">@GunteR_</span>
             <span>·</span>
             <span>1min</span>
           </div>
@@ -44,7 +44,7 @@ function Guin({
             ) : null}
           </div>
           {/* puede ser otro componente */}
-          <div className="flex my-3 ">
+          <div className="flex my-3">
             <button className="flex items-center flex-grow group">
               <div className="p-1 rounded-full ease-in-out duration-200  group-hover:bg-blue-400 group-hover:bg-opacity-50">
                 <Image

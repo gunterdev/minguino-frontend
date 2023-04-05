@@ -1,6 +1,6 @@
 "use client";
 import { Inter } from "next/font/google";
-import { Guin, Header, ShowNewGuinsButton } from "@/components";
+import { Guin, Header } from "@/components";
 import GuinPost from "@/components/GuinPost";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -8,21 +8,22 @@ import { useIntersectionObserver } from "@/hooks";
 
 const inter = Inter({ subsets: ["latin"] });
 function HomePage() {
-  const [terrorismo, setTerrorismo] = useState(false);
-  const ref = useRef();
-  const observer = useIntersectionObserver({
-    cb: (show) => {
-      setTerrorismo(show);
-    },
-  });
+  const [visible, setVisible] = useState(false);
+  const [hasGuinsInQueue, setHasGuinsInQueue] = useState(false);
+  const scrollToTop = () => {
+    scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   useEffect(() => {
-    let newRef = ref;
-    if (newRef.current) observer.observe(newRef.current);
-    return () => {
-      if (newRef.current) observer.unobserve(newRef.current);
+    const toggleVisibility = () => {
+      window.pageYOffset > 1000 ? setVisible(true) : setVisible(false);
     };
-  }, [observer]);
-  const newRef = useRef(null);
+
+    window.addEventListener("scroll", toggleVisibility);
+
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
   return (
     <div className="flex items-center flex-col justify-center">
       <div className="container flex flex-1">
@@ -32,8 +33,11 @@ function HomePage() {
             <h2 className="flex p-4 items-center text-xl font-bold">Inicio</h2>
             <button
               className={`${
-                terrorismo ? "hidden" : ""
-              } flex gap-2 items-center p-2 rounded-full fixed top-24 left-1/2 -translate-x-1/2 -translate-y-1/2 origin-center ease-in-out duration-200 hover:bg-orange-400 bg-orange-500`}
+                visible
+                  ? "duration-700"
+                  : "-translate-y-48 duration-700 opacity-0"
+              } flex gap-2 items-center p-2 rounded-full absolute top-24 left-1/2 -translate-x-1/2 -translate-y-1/2 origin-center ease-in-out hover:bg-orange-400 bg-orange-500`}
+              onClick={scrollToTop}
             >
               <Image
                 src={"icon-arrow-up.svg"}
@@ -44,8 +48,13 @@ function HomePage() {
               <span className="text-white text-xs font-bold">Go Up</span>
             </button>
           </div>
+
           <GuinPost />
-          <ShowNewGuinsButton ref={newRef} />
+          {hasGuinsInQueue ? (
+            <button className="text-orange-500 w-full p-3 text-center hover:bg-gray-200 border-b border-x border-gray-300">
+              Show 33 Guin
+            </button>
+          ) : null}
           <section className="minguinos-container border-x border-gray-300">
             <Guin hasImage>
               No tenía un destino en mente. Solo quería cabalgar. Siguió el
